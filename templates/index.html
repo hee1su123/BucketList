@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <title>Bucket List</title>
+
+    <style>
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+
+        .mypic {
+            width: 100%;
+            height: 200px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/jpeg;base64,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');
+            background-position: center;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mypic > h1 {
+            font-size: 30px;
+        }
+
+        .mybox {
+            width: 95%;
+            max-width: 700px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px lightblue;
+            margin: 20px auto;
+        }
+
+        .mybucket {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mybucket > input {
+            width: 70%;
+        }
+
+        .mybox > li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 10px;
+            min-height: 48px;
+        }
+
+        .mybox > li > h2 {
+            max-width: 75%;
+            font-size: 20px;
+            font-weight: 500;
+            margin-right: auto;
+            margin-bottom: 0px;
+        }
+
+        .mybox > li > h2.done {
+            text-decoration: line-through
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            show_bucket();
+        });
+
+        function show_bucket() {
+            $.ajax({
+                type: "GET",
+                url: "/bucket",
+                data: {},
+                success: function (response) {
+                    let tmp_html;
+                    for (let i = 0; i < response.length; i++) {
+                        // 미완료
+                        if (response[i]['done'] == 0) {
+                            tmp_html = `<li><h2>✅ ${response[i]['bucket']}</h2>
+                                        <button onclick="done_bucket(${response[i]['num']})" type="button" class="btn btn-outline-primary">완료!</button></li>`
+                        }
+                        // 완료
+                        else {
+                            tmp_html = `<li><h2 class="done">✅ ${response[i]['bucket']}</h2>
+                                        <button onclick="rollback_bucket(${response[i]['num']})" type="button" class="btn btn-outline-danger">취소</button></li>`
+                        }
+                        $('#bucket-list').append(tmp_html);
+                    }
+                }
+            });
+        }
+
+        function save_bucket() {
+            let bucket = $('#bucket').val();
+            $.ajax({
+                type: "POST",
+                url: "/bucket",
+                data: {bucket_give: bucket},
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.reload()
+                }
+            });
+        }
+
+        function done_bucket(num) {
+            $.ajax({
+                type: "POST",
+                url: "/bucket/done",
+                data: {num_give:num},
+                success: function (response) {
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            });
+        }
+
+        function rollback_bucket(num) {
+            $.ajax({
+                type: "POST",
+                url: "/bucket/rollback",
+                data: {num_give:num},
+                success: function (response) {
+                    alert(response['msg']);
+                    window.location.reload();
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+<div class="mypic">
+    <h1>My Bucketlist</h1>
+</div>
+<div class="mybox">
+    <div class="mybucket">
+        <input id="bucket" class="form-control" type="text" placeholder="이루고 싶은 것을 입력하세요">
+        <button onclick="save_bucket()" type="button" class="btn btn-outline-primary">기록하기</button>
+    </div>
+</div>
+<div class="mybox" id="bucket-list">
+</div>
+</body>
+</html>
